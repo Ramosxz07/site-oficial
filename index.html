@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>CRAZY STORE - LOJA OFICIAL </title>
+<title>CRAZY STORE - Site Oficial</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -12,23 +12,30 @@
     --accent:#8b3cff;
     --accent-2:#ff4d9a;
     --muted:#cfcfcf;
-    --glass: rgba(255,255,255,0.02);
   }
-  *{box-sizing:border-box}
+  *{box-sizing:border-box;margin:0;padding:0}
   body{
-    margin:0;
     font-family:Inter,system-ui,Arial,Helvetica,sans-serif;
     background:linear-gradient(180deg,#060506 0%, #0b0b0c 100%);
     color:#fff;
     -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
   }
-  a{ color:inherit }
 
-  /* Top promo bar */
+  @keyframes rainbow {
+    0% { background-position:0% 50%; }
+    50% { background-position:100% 50%; }
+    100% { background-position:0% 50%; }
+  }
+  .accent, .accent-anim {
+    background:linear-gradient(90deg,#ff4d9a,#8b3cff,#3be5ff,#ff4d9a);
+    background-size:300% 300%;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:rainbow 6s ease infinite;
+  }
+
   .promo {
     background: linear-gradient(90deg,#ff3b3b,#ff1e1e);
-    color:#fff;
     text-align:center;
     padding:10px 12px;
     font-weight:700;
@@ -36,305 +43,290 @@
     font-size:13px;
   }
 
-  /* main container centered with mobile width */
-  .wrap{
-    max-width:420px;
-    margin:18px auto;
-    padding:0 16px 60px;
-  }
+  .wrap{ max-width:430px; margin:0 auto; padding:0 18px 80px; }
+  .logo{ display:flex; justify-content:center; margin:28px 0 8px; }
+  .logo img{ width:120px; height:120px; border-radius:50%; object-fit:cover; filter:drop-shadow(0 8px 30px rgba(139,60,255,0.25)); }
 
-  .logo { display:flex; justify-content:center; margin:28px 0 8px; }
-  .logo img{ width:116px; height:116px; border-radius:50%; display:block; filter: drop-shadow(0 8px 30px rgba(139,60,255,0.25)); margin:0 auto 8px; object-fit:cover; }
-
-  .headline{ text-align:center; padding:10px 6px; line-height:1.06; margin-bottom:6px; }
-  .headline .line{ font-weight:800; font-size:28px; color:#fff; margin:6px 0; letter-spacing:0.6px; }
-  .headline .accent{ background:linear-gradient(90deg,var(--accent-2),#b65cff 60%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; font-weight:900; }
+  .headline{ text-align:center; line-height:1.1; margin-bottom:10px; }
+  .headline .line{ font-weight:800; font-size:28px; margin:5px 0; }
   .headline .big{ font-size:30px; }
 
-  .video-wrap{ margin:20px 0 14px; border-radius:18px; padding:12px; display:flex; justify-content:center; box-shadow: 0 18px 40px rgba(0,0,0,0.6); }
-  .video-embed{ width:100%; max-width:320px; height:400px; border-radius:12px; overflow:hidden; background:#000; display:flex; align-items:center; justify-content:center; }
-  .video-embed iframe{ width:100%; height:100%; border:0; }
+  .cta{ background:linear-gradient(180deg,var(--accent),#7a31e6); border-radius:28px; padding:14px 28px; color:#fff; font-weight:800; text-decoration:none; display:inline-block; text-align:center; min-width:260px; box-shadow:0 10px 30px rgba(139,60,255,0.3); }
+  .cta:active{ transform:translateY(2px); }
 
-  .cta-wrap{ display:flex; justify-content:center; margin-top:16px; }
-  .cta{ background:linear-gradient(180deg,var(--accent), #7a31e6); border-radius:28px; padding:14px 28px; color:#fff; font-weight:800; letter-spacing:1px; text-decoration:none; box-shadow: 0 10px 30px rgba(139,60,255,0.28), 0 0 36px rgba(139,60,255,0.35); display:inline-block; text-align:center; min-width:260px; }
-  .cta:active{ transform:translateY(2px); box-shadow: 0 6px 18px rgba(139,60,255,0.18); }
+  .cta-wrap{ text-align:center; margin:18px 0; }
+  .divider{ height:6px; background:linear-gradient(90deg,rgba(139,60,255,0.12),rgba(139,60,255,0.25)); border-radius:6px; margin:25px 0; }
+  .lead{ text-align:center; color:var(--muted); font-weight:600; margin:10px 0; }
 
-  .divider{ height:6px; background:linear-gradient(90deg, rgba(139,60,255,0.12), rgba(139,60,255,0.25)); border-radius:6px; margin:20px 0 18px; }
+  .thanks{ text-align:center; margin-top:30px; }
+  .thanks-box{ background:rgba(0,0,0,0.25); border:2px solid rgba(139,60,255,0.35); border-radius:14px; padding:14px; margin-bottom:18px; }
+  .thanks-box p{ font-weight:600; color:#fff; font-size:14px; line-height:1.4; text-align:justify; }
 
-  .lead{ text-align:center; color:var(--muted); font-weight:600; margin-top:6px; }
+  .review-card{ background:linear-gradient(180deg,#111,#0a0a0a); border-radius:14px; padding:16px; margin:12px 0 20px; box-shadow:0 8px 30px rgba(0,0,0,0.5); text-align:left; }
+  .review-card .stars{ font-size:20px; text-align:center; margin-bottom:8px; }
+  .review-card p{ font-size:14px; color:#eee; margin:8px 0; line-height:1.4; }
 
-  /* thanks section */
-  .thanks{ margin-top:40px; text-align:center; }
-  .thanks-box{
-    background:rgba(0,0,0,0.25);
-    border:2px solid rgba(139,60,255,0.4);
-    box-shadow:0 0 25px rgba(139,60,255,0.4);
-    border-radius:18px;
-    padding:18px 16px;
-    margin:0 auto 28px;
-    max-width:420px;
-  }
-  .thanks-box p{ font-weight:600; color:#fff; font-size:14px; line-height:1.5; text-align:justify; }
-
-  .review-card{
-    background:linear-gradient(180deg,#111,#0a0a0a);
-    border-radius:16px;
-    padding:22px 20px;
-    margin:0 auto 30px;
-    max-width:420px;
-    box-shadow:0 8px 30px rgba(0,0,0,0.5);
-    text-align:left;
-  }
-  .review-card .stars{ font-size:24px; text-align:center; margin-bottom:12px; }
-  .review-card p{ font-size:15px; color:#eee; margin:10px 0; line-height:1.4; }
-  .review-card strong{ color:#fff; }
-
-  /* motivation section */
-  .motivation{ text-align:center; color:#fff; padding:40px 20px; }
-  .motivation h2{ font-size:22px; font-weight:700; line-height:1.5; margin-bottom:30px; }
-  .motivation h2 span{ color:var(--accent-2); }
-  .arrow-down{ font-size:28px; color:#9b59ff; margin: 10px 0 30px; animation: bounce 1.6s infinite; }
+  .motivation{ text-align:center; color:#fff; padding:28px 20px; }
+  .motivation h2{ font-size:20px; font-weight:700; line-height:1.4; margin-bottom:18px; }
+  .arrow-down{ font-size:26px; color:#9b59ff; margin:10px 0 18px; animation:bounce 1.6s infinite; }
   @keyframes bounce{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(6px);} }
-  .motivation h3{ font-size:22px; font-weight:700; line-height:1.5; margin-bottom:35px; }
-  .motivation h3 span{ color:var(--accent-2); }
-  .motivation .video{ max-width:380px; margin:0 auto; border-radius:14px; overflow:hidden; box-shadow:0 0 25px rgba(139,60,255,0.3); }
-  .motivation iframe{ width:100%; height:220px; border:none; border-radius:14px; }
 
-  /* offers section header */
-  .offers-title{ text-align:center; color:var(--accent-2); font-weight:800; letter-spacing:1px; margin:24px 0 12px; font-size:18px; text-shadow:0 0 12px rgba(139,60,255,0.18); }
+  .offers-title{ text-align:center; color:var(--accent-2); font-weight:800; letter-spacing:1px; margin:12px 0 18px; font-size:18px; text-shadow:0 0 12px rgba(139,60,255,0.12); }
 
-  /* horizontal cards container */
-  .plans {
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-    align-items:center;
-    margin-bottom:28px;
+  .plan-thumb{
+    width:100%;
+    max-width:320px;
+    border-radius:12px;
+    margin-bottom:10px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.6);
+    transition: transform 0.28s ease, filter 0.28s ease;
   }
+  .plan-thumb:hover{ transform: scale(1.05); filter: brightness(1.1); }
 
-  /* plan card */
+  .plans{ display:flex; flex-direction:column; align-items:center; gap:12px; margin-bottom:24px; }
   .plan-card{
-    width:90%;
-    max-width:360px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    border-radius:16px;
-    padding:14px;
-    border:1px solid rgba(255,255,255,0.03);
-    box-shadow: 0 8px 30px rgba(0,0,0,0.6);
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-    align-items:center;
+    width:92%; max-width:360px; background:rgba(255,255,255,0.02);
+    border:1px solid rgba(255,255,255,0.05); border-radius:14px; padding:12px;
+    box-shadow:0 8px 30px rgba(0,0,0,0.5); text-align:center;
+    position: relative;
   }
   .plan-name{ font-weight:800; color:var(--accent); font-size:18px; }
-  .plan-feats{ color:#ddd; font-size:14px; text-align:center; line-height:1.45; margin:6px 0; }
-  .plan-price{ font-weight:900; font-size:26px; color:var(--accent-2); text-shadow:0 10px 30px rgba(139,60,255,0.12); }
+  .plan-feats{ color:#ddd; font-size:14px; line-height:1.45; margin:6px 0; }
+  .plan-price{ font-weight:900; font-size:24px; color:var(--accent-2); margin-top:5px; }
   .plan-cta{
-    margin-top:8px;
     display:inline-block;
+    margin-top:8px;
     padding:10px 18px;
     border-radius:12px;
-    background:linear-gradient(180deg,var(--accent), #7a31e6);
+    background:linear-gradient(180deg,var(--accent),#7a31e6);
     color:#fff;
     font-weight:800;
     text-decoration:none;
-    box-shadow: 0 10px 30px rgba(139,60,255,0.18);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .plan-cta:hover{
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(139,60,255,0.5);
   }
 
-  .foot-note{ text-align:center; color:var(--muted); font-size:13px; margin-top:6px; }
-
-  /* responsive tweaks */
-  @media(min-width:520px){
-    .headline .line{ font-size:36px }
-    .headline .big{ font-size:44px }
-    .video-embed{ height:420px; max-width:500px; }
-    .wrap{ padding:0 24px 80px }
-    .cta{ min-width:360px }
-    .plan-card{ max-width:420px; width:76%; flex-direction:row; justify-content:space-between; padding:16px 22px; align-items:center; }
-    .plan-feats{ text-align:left; }
-    .plan-cta{ min-width:160px; text-align:center; }
+  .badge{
+    position:absolute;
+    top:-10px;
+    right:-10px;
+    background: var(--accent-2);
+    color:#fff;
+    font-weight:700;
+    font-size:12px;
+    padding:4px 8px;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.4);
   }
+
+  footer{ text-align:center; color:var(--muted); margin-top:30px; }
+
+  .cta-footer{
+    text-align:center;
+    font-weight:800;
+    font-size:18px;
+    margin-top:20px;
+    animation: rainbow 5s ease infinite;
+  }
+
+  /* ===== POP-UPS DE COMPRAS ===== */
+  .purchase-popup{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background: linear-gradient(90deg,#8b3cff,#ff4d9a);
+    color:#fff;
+    padding:10px 14px;
+    border-radius:10px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.5);
+    font-size:14px;
+    min-width:220px;
+    opacity:0;
+    transform: translateX(120%);
+    transition: all 0.6s ease;
+    margin-top:8px;
+  }
+  .purchase-popup.show{
+    opacity:1;
+    transform: translateX(0);
+  }
+  .purchase-popup img{
+    width:32px; height:32px;
+    border-radius:50%;
+    object-fit:cover;
+    border:2px solid #fff;
+  }
+
+  #floating-notifications{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    display:flex;
+    flex-direction:column;
+  }
+
 </style>
 </head>
 <body>
 
-  <div class="promo">OFERTA IMPERDÍVEL TRANSFORME SUA MIRA COM O CRAZY STORE!</div>
+<div class="promo">🔥 OFERTA IMPERDÍVEL TRANSFORME SUA MIRA COM O CRAZY STORE!</div>
 
-  <main class="wrap" role="main">
+<main class="wrap">
+  <div class="logo">
+    <img src="https://i.ibb.co/pjyt12cm/IMG-20251029-WA0007.jpg" alt="Logo CRAZY STORE" />
+  </div>
 
-    <!-- Logo + Headline -->
-    <div class="logo" aria-hidden="true">
-      <!-- Logo substituída: imagem pública (redonda) -->
-      <img src="https://i.ibb.co/pjyt12cm/IMG-20251029-WA0007.jpg" alt="Logo CRAZY STORE" />
+  <header class="headline">
+    <div class="line">O SEGREDO DA</div>
+    <div class="line big"> @CRAZY STORE QUE</div>
+    <div class="line"><span class="accent">TRANSFORMOU</span> A MIRA DE</div>
+    <div class="line"><span class="accent">+25K DE PLAYERS</span></div>
+    <div class="line accent">EM UMA MÁQUINA DE CAPA</div>
+  </header>
+
+  <div class="cta-wrap">
+    <a class="cta" href="#ofertas" id="mainBuy">EU QUERO O XIT MOBILE</a>
+  </div>
+
+  <div class="divider"></div>
+
+  <p class="lead"><strong>CANSADO</strong> DE APANHAR NAS <span style="color:var(--accent-2)">RANKEDS</span> E QUER DAR UM UPGRADE RÁPIDO?</p>
+
+  <section class="thanks">
+    <div class="thanks-box">
+      <p><strong class="accent-anim">A EQUIPE CRAZY STORE</strong> agradece a todos os clientes — cada feedback nos ajuda a melhorar e trazer atualizações mais rápidas.</p>
     </div>
 
-    <header class="headline" id="main-title">
-      <div class="line">O SEGREDO DA @CRAZY STORE</div>
-      <div class="line big"> QUE</div>
-      <div class="line"><span class="accent">TRANSFORMOU</span> A MIRA DE</div>
-      <div class="line"><span class="accent">+25K DE PLAYERS</span></div>
-      <div class="line accent">EM UMA MÁQUINA DE CAPA</div>
-    </header>
-
-    <!-- main demo video -->
-    <div class="video-wrap" aria-hidden="false">
-      <div class="video-embed" role="region" aria-label="Vídeo demonstração">
-        <!-- demo embed - substitua pelo seu vídeo real -->
-        <iframe src="   " title="Demonstração" allow="autoplay; fullscreen" allowfullscreen></iframe>
-      </div>
+    <div class="review-card">
+      <div class="stars">⭐ ⭐ ⭐ ⭐ ⭐</div>
+      <p>🎮 <strong>+25.000 players</strong> satisfeitos com o produto</p>
+      <p>⏳ <strong>+4 anos</strong> de mercado</p>
+      <p>🔒 <strong>7 dias de garantia</strong> – política de reembolso disponível via suporte</p>
+      <p>❓ <strong>Suporte VIP 24h</strong> — tudo disponível na área de membros.</p>
     </div>
+  </section>
 
-    <div class="cta-wrap">
-      <!-- checkout link commented for later replacement -->
-      <!-- Example: <a class="cta" href="https://seu-checkout.com/checkout?id=main" id="mainBuy">EU QUERO O XIT MOBILE</a> -->
-      <a class="cta" href="#" id="mainBuy">EU QUERO O XIT MOBILE</a>
+  <section class="motivation">
+    <h2>NÃO ADIANTA <span class="accent-anim">TREINAR DURANTE HORAS...</span><br>QUEM USA O <span class="accent-anim">XIT MOBILE</span> SEMPRE SAI NA <span class="accent-anim">FRENTE.</span></h2>
+    <div class="arrow-down">⮟</div>
+    <h3>ELEVE <span class="accent-anim">O NÍVEL DO SEU JOGO</span> COM O <span class="accent-anim">XIT MOBILE</span> DA <span class="accent-anim">CRAZY STORE</span></h3>
+  </section>
+
+  <div class="offers-title">🔥 CONHEÇA NOSSAS OFERTAS 🔥</div>
+
+  <section class="plans" id="ofertas">
+    <article class="plan-card">
+      <img src="https://i.ibb.co/qLrCHrBJ/IMG-20251108-072242.jpg" alt="Miniatura Semanal" class="plan-thumb">
+      <div class="plan-name">💥 Testa e Surpreende-se!</div>
+      <div class="plan-feats">
+        Acesso temporário de 7 dias<br>
+        Configurações básicas + suporte<br>
+        Funciona em <strong>iOS e Android</strong><br>
+        <strong style="color:var(--accent-2)">+25K players já usam</strong>
+      </div>
+      <div class="plan-price">R$ 19,99</div>
+      <a id="buy-weekly" class="plan-cta" href="https://pay.kiwify.com.br/ITEQGrq" target="_blank">ADQUIRIR MEU ACESSO</a>
+    </article>
+
+    <article class="plan-card">
+      <div class="badge">🔥 Mais Popular</div>
+      <img src="https://i.ibb.co/qLrCHrBJ/IMG-20251108-072242.jpg" alt="Miniatura Mensal" class="plan-thumb">
+      <div class="plan-name">⚡ Domine as Rankeds!</div>
+      <div class="plan-feats">
+        Acesso de 30 dias<br>
+        Configurações avançadas + suporte VIP<br>
+        Funciona em <strong>iOS e Android</strong><br>
+        <strong style="color:var(--accent-2)">+25K players já usam</strong>
+      </div>
+      <div class="plan-price">R$ 29,99</div>
+      <a id="buy-monthly" class="plan-cta" href="https://pay.kiwify.com.br/JQviPFE" target="_blank">ADQUIRIR MEU ACESSO</a>
+    </article>
+
+    <article class="plan-card">
+      <img src="https://i.ibb.co/qLrCHrBJ/IMG-20251108-072242.jpg" alt="Miniatura Vitalício" class="plan-thumb">
+      <div class="plan-name">🔥 Mira Perfeita Pra Sempre!</div>
+      <div class="plan-feats">
+        Acesso vitalício<br>
+        Atualizações + suporte VIP 24h<br>
+        Funciona em <strong>iOS e Android</strong><br>
+        <strong style="color:var(--accent-2)">+25K players já usam</strong>
+      </div>
+      <div class="plan-price">R$ 89,99</div>
+      <a id="buy-perm" class="plan-cta" href="https://pay.kiwify.com.br/LLqLYI1" target="_blank">ADQUIRIR MEU ACESSO</a>
+    </article>
+  </section>
+
+  <!-- Depoimentos de clientes -->
+  <section class="feedbacks" style="margin-top:30px;">
+    <div class="offers-title">🗣️ O QUE NOSSOS CLIENTES DIZEM</div>
+    <div class="review-card">
+      <div class="stars">⭐ ⭐ ⭐ ⭐ ⭐</div>
+      <p>“Comprei o plano mensal e já percebi uma grande melhora na minha mira! Recomendo demais para quem quer evoluir rápido.” <strong>- Lucas S.</strong></p>
     </div>
+    <div class="review-card">
+      <div class="stars">⭐ ⭐ ⭐ ⭐ ⭐</div>
+      <p>“O suporte é incrível, sempre me ajudaram quando precisei. O XIT MOBILE realmente faz diferença nas partidas.” <strong>- Mariana R.</strong></p>
+    </div>
+    <div class="review-card">
+      <div class="stars">⭐ ⭐ ⭐ ⭐ ⭐</div>
+      <p>“Com o plano vitalício, minhas partidas subiram de nível! Vale cada centavo e ainda recebo atualizações constantes.” <strong>- Rafael T.</strong></p>
+    </div>
+  </section>
 
-    <div class="divider" aria-hidden="true"></div>
-    <p class="lead"><strong>CANSADO</strong> DE APANHAR NAS <span style="color:var(--accent-2)">RANKEDS</span> E...</p>
+  <p class="cta-footer accent-anim">Não perca tempo! Garanta já o seu XIT MOBILE!</p>
 
-    <!-- thanks -->
-    <section class="thanks">
-      <div class="thanks-box">
-        <p><strong style="color:var(--accent-2)">A EQUIPE CRAZY STORE</strong> AGRADECE DE <strong style="color:var(--accent-2)">CORAÇÃO</strong> AOS CLIENTES QUE, MESMO <strong style="color:var(--accent-2)">TÍMIDOS</strong>, SE ESFORÇARAM PARA ENVIAR UM <strong style="color:var(--accent-2)">FEEDBACK</strong>. CADA MENSAGEM NOS AJUDA A MELHORAR E NOS MOTIVA A SEGUIR EM FRENTE!</p>
-      </div>
+  <footer>
+    <a href="https://wa.me/5598984302566" style="color:var(--accent); font-weight:700;">🛠️ Suporte via WhatsApp</a>
+  </footer>
+</main>
 
-      <div class="divider" aria-hidden="true"></div>
+<!-- POP-UPS DE COMPRAS -->
+<div id="floating-notifications"></div>
 
-      <div class="review-card" role="contentinfo" aria-label="Avaliações e benefícios">
-        <div class="stars" aria-hidden="true">⭐ ⭐ ⭐ ⭐ ⭐</div>
-        <p>🎮 <strong>+25.000 players</strong> satisfeitos com o produto</p>
-        <p>⏳ <strong>+4 anos</strong> de mercado</p>
-        <p>🔒 <strong>7 dias de garantia</strong> – política de reembolso disponível via suporte</p>
-        <p>❓ <strong>Suporte vip 24h!</strong> Qualquer dúvida, entre em contato via WhatsApp.</p>
-      </div>
+<script>
+  // Função botão rolar para ofertas
+  document.getElementById('mainBuy').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.querySelector('#ofertas').scrollIntoView({ behavior: 'smooth' });
+  });
 
-      <div class="divider" aria-hidden="true"></div>
-    </section>
+  // Pop-ups de compras simuladas
+  const messages = [
+    {name:"Lucas S.", plan:"Plano Semanal"},
+    {name:"Mariana R.", plan:"Plano Mensal"},
+    {name:"Rafael T.", plan:"Plano Vitalício"},
+    {name:"Ana C.", plan:"Plano Mensal"},
+    {name:"Pedro M.", plan:"Plano Semanal"},
+    {name:"Juliana F.", plan:"Plano Vitalício"}
+  ];
 
-    <!-- motivation -->
-    <section class="motivation" aria-labelledby="mot-title">
-      <h2 id="mot-title">NÃO ADIANTA <span>TREINAR DURANTE HORAS...</span><br>QUEM USA O <span>XIT MOBILE</span> SEMPRE SAI NA <span>FRENTE.</span></h2>
-      <div class="arrow-down" aria-hidden="true">⮟</div>
-      <h3>ELEVE <span>O NÍVEL DO SEU JOGO</span> COM O <span>XIT MOBILE</span><br>DA <span>CRAZY STORE</span></h3>
+  const container = document.getElementById('floating-notifications');
 
-      <div class="video" aria-hidden="true">
-        <!-- exemplo de vídeo pequeno -->
-        <iframe src="  " title="Vídeo secundário" allow="autoplay; fullscreen" allowfullscreen></iframe>
-      </div>
-    </section>
+  function showNotification() {
+    const msg = messages[Math.floor(Math.random()*messages.length)];
 
-    <!-- OFFERS TITLE -->
-    <div class="offers-title">🔥 CONHEÇA NOSSAS OFERTAS 🔥</div>
+    const notif = document.createElement('div');
+    notif.className = 'purchase-popup';
+    notif.innerHTML = `<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQinnUal9KewD15ltqzleXA5cfzf3geZRIqvhWgbv7nj6gozhqWclLiH0cC&s=10" alt="Avatar"><span><strong>${msg.name}</strong> acabou de adquirir o <strong>${msg.plan}</strong></span>`;
 
-    <!-- PLANS -->
-    <section class="plans" aria-label="Planos de compra">
+    container.appendChild(notif);
 
-      <!-- Semanal -->
-      <article class="plan-card" role="region" aria-label="Plano Semanal">
-        <div>
-          <div class="plan-name">Semanal</div>
-          <div class="plan-feats">
-            Acesso temporário de 7 dias<br>
-            Configurações básicas + suporte 24hrs
-            aimbot
-            esp
-            ignorar derrubados
-            gelo invertido
-            +codiguin calça Angélical
-          </div>
-        </div>
-        <div style="text-align:center">
-          <div class="plan-price">R$ 19,99</div>
-          <!-- Example checkout link (commented):
-               <a id="buy-weekly" class="plan-cta" href="https://seu-checkout.com/weekly" role="button">COMPRAR AGORA</a>
-          -->
-          <a id="buy-weekly" class="plan-cta" href="https://pay.kiwify.com.br/ITEQGrq" role="button">ADQUIRIR MEU ACESSO</a>
-        </div>
-      </article>
+    requestAnimationFrame(() => notif.classList.add('show'));
 
-      <!-- Mensal -->
-      <article class="plan-card" role="region" aria-label="Plano Mensal">
-        <div>
-          <div class="plan-name">Mensal</div>
-          <div class="plan-feats">
-            Acesso de 30 dias<br>
-            Configurações avançadas + suporte VIP
-            Aimbot
-            Esp
-            ignorar derrubados
-            gelo invertido 
-            +codiguin calça Angélical
-          </div>
-        </div>
-        <div style="text-align:center">
-          <div class="plan-price">R$ 29,99</div>
-          <!-- Example checkout link (commented):
-               <a id="buy-monthly" class="plan-cta" href="https://seu-checkout.com/monthly" role="button">COMPRAR AGORA</a>
-          -->
-          <a id="buy-monthly" class="plan-cta" href="https://pay.kiwify.com.br/JQviPFE" role="button">ADQUIRIR MEU ACESSO</a>
-        </div>
-      </article>
+    setTimeout(() => {
+      notif.classList.remove('show');
+      setTimeout(() => container.removeChild(notif), 600);
+    }, 5000);
+  }
 
-      <!-- Permanente -->
-      <article class="plan-card" role="region" aria-label="Plano Permanente">
-        <div>
-          <div class="plan-name">Permanente</div>
-          <div class="plan-feats">
-            Acesso vitalício<br>
-            Atualizações + suporte VIP 24h
-            Aimbot
-            Aimbot Rage
-            Esp
-            ignorar derrubados
-            gelo invertido
-            pack de otimizações
-            Fake Lag
-            100% Antiban e blacklist
-          </div>
-        </div>
-        <div style="text-align:center">
-          <div class="plan-price">R$ 89,99</div>
-          <!-- Example checkout link (commented):
-               <a id="buy-perm" class="plan-cta" href="https://seu-checkout.com/permanent" role="button">COMPRAR AGORA</a>
-          -->
-          <a id="buy-perm" class="plan-cta" href="https://pay.kiwify.com.br/LLqLYI1" role="button">ADQUIRIR MEU ACESSO</a>
-        </div>
-      </article>
-
-    </section>
-
-    <p class="foot-note">* </p>
-
-    <div style="height:28px"></div>
-
-    <!-- Support footer -->
-    <footer style="text-align:center; padding:18px 8px;">
-      <!-- Example WhatsApp link (commented):
-           <a href="https://wa.me/5598984812153" target="_blank">🛠️ Suporte via WhatsApp</a>
-      -->
-      <a href="#" style="text-decoration:none; color:var(--accent); font-weight:700;">🛠️ Suporte via WhatsApp</a>
-    </footer>
-
-  </main>
-
-  <script>
-    // IDs for easy replacement later:
-    // buy-weekly, buy-monthly, buy-perm, mainBuy
-    // Example helper function you can use to set links dynamically:
-    function setCheckoutLinks(weekly, monthly, perm, main, whatsapp) {
-      if(weekly) document.getElementById('buy-weekly').href = weekly;
-      if(monthly) document.getElementById('buy-monthly').href = monthly;
-      if(perm) document.getElementById('buy-perm').href = perm;
-      if(main) document.getElementById('mainBuy').href = main;
-      if(whatsapp) {
-        var f = document.querySelector('footer a');
-        if(f) f.href = whatsapp;
-      }
-    }
-    // Usage (example):
-    // setCheckoutLinks('https://seu-checkout.com/weekly','https://seu-checkout.com/monthly','https://seu-checkout.com/permanent','https://seu-checkout.com/main','https://wa.me/5598984812153');
-  </script>
+  setInterval(() => showNotification(), Math.floor(Math.random()*4000)+6000);
+</script>
 
 </body>
-</html>
+    </html>
