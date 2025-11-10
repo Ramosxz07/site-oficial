@@ -1,332 +1,314 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>CRAZY STORE - Site Oficial</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#070607;
-    --card:#0f0f10;
-    --accent:#8b3cff;
-    --accent-2:#ff4d9a;
-    --muted:#cfcfcf;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{
-    font-family:Inter,system-ui,Arial,Helvetica,sans-serif;
-    background:linear-gradient(180deg,#060506 0%, #0b0b0c 100%);
-    color:#fff;
-    -webkit-font-smoothing:antialiased;
-  }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DeckHack Royale</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: "Poppins", Arial, sans-serif;
+      background: linear-gradient(180deg,#0b0d26 0%,#1b0b0b 60%, #2b0f0f 100%);
+      color:#fff;
+      -webkit-font-smoothing:antialiased;
+      text-align:center;
+      line-height:1.4;
+    }
 
-  @keyframes rainbow {
-    0% { background-position:0% 50%; }
-    50% { background-position:100% 50%; }
-    100% { background-position:0% 50%; }
-  }
-  .accent, .accent-anim {
-    background:linear-gradient(90deg,#ff4d9a,#8b3cff,#3be5ff,#ff4d9a);
-    background-size:300% 300%;
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-    animation:rainbow 6s ease infinite;
-  }
+    a {color:inherit;text-decoration:none}
 
-  .promo {
-    background: linear-gradient(90deg,#ff3b3b,#ff1e1e);
-    text-align:center;
-    padding:10px 12px;
-    font-weight:700;
-    letter-spacing:2px;
-    font-size:13px;
-  }
+    .wrap{max-width:980px;margin:0 auto;padding:20px}
 
-  .wrap{ max-width:430px; margin:0 auto; padding:0 18px 80px; }
-  .logo{ display:flex; justify-content:center; margin:28px 0 8px; }
-  .logo img{ width:120px; height:120px; border-radius:50%; object-fit:cover; filter:drop-shadow(0 8px 30px rgba(139,60,255,0.25)); }
+    header{padding:48px 20px 36px;}
+    .offer-btn{
+      display:inline-block;
+      background:#f1b400;
+      color:#000;
+      padding:10px 26px;
+      border-radius:30px;
+      font-weight:700;
+      margin-bottom:20px;
+      font-size:15px;
+    }
+    h1.site-title{
+      font-size:34px;
+      margin:10px 0 6px;
+      font-weight:800;
+      color:#fff;
+    }
+    h1.site-title .accent{ color:#ffcc00 }
+    p.lead{color:#cfcfcf;margin-bottom:22px;font-size:15px;}
+    .video-wrap{max-width:480px;margin:0 auto;border-radius:14px;overflow:hidden;background:#000}
+    .video-wrap iframe{width:100%;height:260px;border:0;display:block}
+    .video-note{margin-top:12px;color:#ddd;font-size:14px}
 
-  .headline{ text-align:center; line-height:1.1; margin-bottom:10px; }
-  .headline .line{ font-weight:800; font-size:28px; margin:5px 0; }
-  .headline .big{ font-size:30px; }
+    .benefits{padding:36px 20px;background:linear-gradient(180deg, rgba(27,11,11,0.4), rgba(43,15,15,0.6));}
+    .benefit-list{display:flex;flex-direction:column;gap:14px;align-items:center;justify-content:center}
+    .benefit{
+      width:94%;
+      max-width:360px;
+      background:#7b1212;
+      border-radius:14px;
+      padding:14px 18px;
+      border:2px solid rgba(255,80,80,0.12);
+      font-weight:600;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      color:#fff;
+    }
+    .cta-main{
+      display:inline-block;
+      background:#f1b400;
+      color:#000;
+      padding:14px 36px;
+      border-radius:34px;
+      font-weight:700;
+      margin-top:20px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.25);
+    }
 
-  .cta{ background:linear-gradient(180deg,var(--accent),#7a31e6); border-radius:28px; padding:14px 28px; color:#fff; font-weight:800; text-decoration:none; display:inline-block; text-align:center; min-width:260px; box-shadow:0 10px 30px rgba(139,60,255,0.3); }
-  .cta:active{ transform:translateY(2px); }
+    .features{padding:48px 18px}
+    .features h2{font-size:26px;color:#ffcc00;margin-bottom:20px}
+    .cards{display:grid;grid-template-columns:1fr;gap:18px;align-items:stretch;justify-items:center}
+    .card{
+      width:94%;
+      max-width:760px;
+      background:linear-gradient(180deg, rgba(139,0,0,0.95), rgba(110,0,0,0.9));
+      border-radius:16px;
+      padding:18px;
+      border:2px solid rgba(255,80,80,0.14);
+      text-align:left;
+      color:#fff;
+    }
+    .card .meta{display:flex;align-items:center;gap:14px}
+    .card .icon{
+      width:56px;height:56px;border-radius:12px;background:rgba(0,0,0,0.08);
+      display:flex;align-items:center;justify-content:center;font-size:22px;color:#ffcc00;
+    }
+    .card .title{font-size:20px;color:#ffcc00;font-weight:700;margin-bottom:6px}
+    .card .desc{color:#e0dede;font-size:14px}
 
-  .cta-wrap{ text-align:center; margin:18px 0; }
-  .divider{ height:6px; background:linear-gradient(90deg,rgba(139,60,255,0.12),rgba(139,60,255,0.25)); border-radius:6px; margin:25px 0; }
-  .lead{ text-align:center; color:var(--muted); font-weight:600; margin:10px 0; }
+    .plans{padding:48px 18px;background:linear-gradient(180deg,#0b0d26,#1b0b0b)}
+    .plans h2{font-size:28px;color:#ffcc00;margin-bottom:6px}
+    .plans p.sub{color:#bdbdbd;margin-bottom:20px}
 
-  .thanks{ text-align:center; margin-top:30px; }
-  .thanks-box{ background:rgba(0,0,0,0.25); border:2px solid rgba(139,60,255,0.35); border-radius:14px; padding:14px; margin-bottom:18px; }
-  .thanks-box p{ font-weight:600; color:#fff; font-size:14px; line-height:1.4; text-align:justify; }
+    .plan-card{
+      max-width:480px;margin:0 auto;background:#111426;border-radius:16px;padding:26px;border:1px solid rgba(255,255,255,0.03);
+      box-shadow:0 20px 40px rgba(0,0,0,0.45);
+      text-align:left;
+      margin-bottom:28px;
+    }
+    .plan-card .top{display:flex;flex-direction:column;align-items:center;gap:8px;margin-bottom:8px}
+    .plan-card .plan-icon{font-size:36px;color:#ffcc00}
+    .plan-card h3{color:#ffcc00;font-size:22px;margin:6px 0;font-weight:700;text-align:center}
+    .plan-card .price{font-size:36px;font-weight:800;color:#fff;text-align:center;margin:6px 0}
 
-  .review-card{ background:linear-gradient(180deg,#111,#0a0a0a); border-radius:14px; padding:16px; margin:12px 0 20px; box-shadow:0 8px 30px rgba(0,0,0,0.5); text-align:left; }
-  .review-card .stars{ font-size:20px; text-align:center; margin-bottom:8px; }
-  .review-card p{ font-size:14px; color:#eee; margin:8px 0; line-height:1.4; }
+    .plan-features{list-style:none;padding-left:0;color:#cfcfcf;line-height:1.9;margin-top:12px}
+    .plan-features li{display:flex;gap:10px;align-items:flex-start}
+    .plan-features li:before{content:"✔";color:#32c77a;margin-right:8px;font-weight:700}
 
-  .motivation{ text-align:center; color:#fff; padding:28px 20px; }
-  .motivation h2{ font-size:20px; font-weight:700; line-height:1.4; margin-bottom:18px; }
-  .arrow-down{ font-size:26px; color:#9b59ff; margin:10px 0 18px; animation:bounce 1.6s infinite; }
-  @keyframes bounce{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(6px);} }
+    .bonus{
+      background:#8b0000;border-radius:12px;padding:12px;margin:14px 0;color:#fff;border:1px solid rgba(255,80,80,0.14)
+    }
+    .bonus strong{color:#ffcc00;display:block;margin-bottom:6px}
 
-  .offers-title{ text-align:center; color:var(--accent-2); font-weight:800; letter-spacing:1px; margin:12px 0 18px; font-size:18px; text-shadow:0 0 12px rgba(139,60,255,0.12); }
+    .instant{color:#ffcc00;font-weight:700;margin:10px 0}
+    .plan-choose{
+      display:block;text-align:center;background:#ffcc00;color:#000;font-weight:800;padding:14px;border-radius:30px;
+      text-decoration:none;margin-top:12px
+    }
 
-  .plan-thumb{
-    width:100%;
-    max-width:320px;
-    border-radius:12px;
-    margin-bottom:10px;
-    box-shadow:0 6px 20px rgba(0,0,0,0.6);
-    transition: transform 0.28s ease, filter 0.28s ease;
-  }
-  .plan-thumb:hover{ transform: scale(1.05); filter: brightness(1.1); }
-
-  .plans{ display:flex; flex-direction:column; align-items:center; gap:12px; margin-bottom:24px; }
-  .plan-card{
-    width:92%; max-width:360px; background:rgba(255,255,255,0.02);
-    border:1px solid rgba(255,255,255,0.05); border-radius:14px; padding:12px;
-    box-shadow:0 8px 30px rgba(0,0,0,0.5); text-align:center;
-    position: relative;
-  }
-  .plan-name{ font-weight:800; color:var(--accent); font-size:18px; }
-  .plan-feats{ color:#ddd; font-size:14px; line-height:1.45; margin:6px 0; }
-  .plan-price{ font-weight:900; font-size:24px; color:var(--accent-2); margin-top:5px; }
-  .plan-cta{
-    display:inline-block;
-    margin-top:8px;
-    padding:10px 18px;
-    border-radius:12px;
-    background:linear-gradient(180deg,var(--accent),#7a31e6);
-    color:#fff;
-    font-weight:800;
-    text-decoration:none;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  .plan-cta:hover{
-    transform: scale(1.05);
-    box-shadow: 0 12px 30px rgba(139,60,255,0.5);
-  }
-
-  .badge{
-    position:absolute;
-    top:-10px;
-    right:-10px;
-    background: var(--accent-2);
-    color:#fff;
-    font-weight:700;
-    font-size:12px;
-    padding:4px 8px;
-    border-radius:12px;
-    box-shadow:0 4px 12px rgba(0,0,0,0.4);
-  }
-
-  footer{ text-align:center; color:var(--muted); margin-top:30px; }
-
-  .cta-footer{
-    text-align:center;
-    font-weight:800;
-    font-size:18px;
-    margin-top:20px;
-    animation: rainbow 5s ease infinite;
-  }
-
-  /* ===== POP-UPS DE COMPRAS ===== */
-  .purchase-popup{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    background: linear-gradient(90deg,#8b3cff,#ff4d9a);
-    color:#fff;
-    padding:10px 14px;
-    border-radius:10px;
-    box-shadow:0 6px 20px rgba(0,0,0,0.5);
-    font-size:14px;
-    min-width:220px;
-    opacity:0;
-    transform: translateX(120%);
-    transition: all 0.6s ease;
-    margin-top:8px;
-  }
-  .purchase-popup.show{
-    opacity:1;
-    transform: translateX(0);
-  }
-  .purchase-popup img{
-    width:32px; height:32px;
-    border-radius:50%;
-    object-fit:cover;
-    border:2px solid #fff;
-  }
-
-  #floating-notifications{
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 9999;
-    display:flex;
-    flex-direction:column;
-  }
-
-</style>
+    @media(min-width:720px){
+      .cards{grid-template-columns:1fr}
+      .benefit-list{flex-direction:row;flex-wrap:wrap;gap:16px}
+      .benefit{max-width:260px}
+    }
+  </style>
 </head>
 <body>
+  <div class="wrap">
 
-<div class="promo">🔥 OFERTA IMPERDÍVEL TRANSFORME SUA MIRA COM O CRAZY STORE!</div>
+    <header>
+      <a class="offer-btn" href="#">🎯 OFERTA LIMITADA</a>
+      <h1 class="site-title"><span class="accent">DeckHack</span> Royale</h1>
+      <p class="lead">O Cheat Premium Mais Completo para Clash Royale</p>
 
-<main class="wrap">
-  <div class="logo">
-    <img src="https://i.ibb.co/pjyt12cm/IMG-20251029-WA0007.jpg" alt="Logo CRAZY STORE" />
+
+</div>
+      <p class="video-note"></p>
+    </header>
+
+    <section class="benefits">
+      <div class="benefit-list">
+        <div class="benefit"><span>✅</span>Cheat Indetectável</div>
+        <div class="benefit"><span>⚡</span>Elixir Infinito</div>
+        <div class="benefit"><span>⭐</span>Cartas Full Level</div>
+        <div class="benefit"><span>👑</span>Atualizações Vitálicas</div>
+      </div>
+
+      <a class="cta-main" href="#plans">Quero Ser o Rei Agora</a>
+    </section>
+
+    <section class="features" id="features">
+      <h2>Por Que Escolher <span style="color:#ff4242">DeckHack Royale?</span></h2>
+
+      <div class="cards">
+        <div class="card"><div class="meta"><div class="icon">⚡</div><div><div class="title">Elixir Infinito</div><div class="desc">Jogue cartas sem limites e domine todas as partidas.</div></div></div></div>
+        <div class="card"><div class="meta"><div class="icon">⭐</div><div><div class="title">Cartas Full Level</div><div class="desc">Todas as suas cartas no nível máximo instantaneamente.</div></div></div></div>
+        <div class="card"><div class="meta"><div class="icon">🎁</div><div><div class="title">Recursos Ilimitados</div><div class="desc">Ouro, gemas e cartas sem limites para você evoluir mais rápido.</div></div></div></div>
+        <div class="card"><div class="meta"><div class="icon">👑</div><div><div class="title">Atualizações Vitálicas</div><div class="desc">Receba todas as atualizações gratuitamente para sempre.</div></div></div></div>
+        <div class="card"><div class="meta"><div class="icon">🛡️</div><div><div class="title">Android / iOS</div><div class="desc">Compatível com todos os dispositivos móveis.</div></div></div></div>
+        <div class="card"><div class="meta"><div class="icon" style="color:#00ff6a">✔</div><div><div class="title">Instalação Simples</div><div class="desc">Configure em minutos com nosso guia passo a passo.</div></div></div></div>
+      </div>
+    </section>
+
+    <section class="plans" id="plans">
+      <h2>Escolha Seu <span>Plano</span></h2>
+      <p class="sub">Acesso instantâneo após o pagamento</p>
+
+      <div class="plan-card">
+        <div class="top">
+          <div class="plan-icon">👑</div>
+          <h3>Plano Príncipe</h3>
+          <div class="price">R$ <strong>4,99</strong></div>
+        </div>
+
+        <ul class="plan-features">
+          <li>Elixir infinito</li>
+          <li>Cartas full level</li>
+          <li>Recursos ilimitados</li>
+          <li>Instalação rápida</li>
+        </ul>
+
+        <div class="bonus">
+          <strong>🎁 Bônus Simples</strong>
+          <div>5.000 cartas extras para começar com vantagem</div>
+        </div>
+
+        <ul class="plan-features">
+          <li>Instalação simples</li>
+          <li>Funciona em Android e iOS</li>
+          <li>Pagamento 100% seguro</li>
+        </ul>
+
+        <div class="instant">⚡ Entrega instantânea via Email e Whatsapp</div>
+        <a class="plan-choose" href="https://www.ggcheckout.com/checkout/v2/d3ZRhZfyn21sMOygzSBm">Escolher Plano Príncipe</a>
+      </div>
+
+      <div class="plan-card">
+        <div class="top">
+          <div class="plan-icon">👑</div>
+          <h3>Plano Rei da Arena</h3>
+          <div class="price">R$ <strong>9,99</strong></div>
+        </div>
+
+        <ul class="plan-features">
+          <li>Tudo do Plano Príncipe</li>
+          <li>Cheat indetectável</li>
+          <li>Cartas personalizadas exclusivas</li>
+          <li>Atualizações vitalícias gratuitas</li>
+          <li>Suporte prioritário no Discord</li>
+        </ul>
+
+        <div class="bonus">
+          <strong>👑 Mega Bônus</strong>
+          <div>3 Sacos Secretos com 150.000 cartas cada!</div>
+        </div>
+
+        <div class="bonus" style="background:#ff7b00;color:#fff;">
+          <strong>⭐ Bônus Exclusivo 1</strong>
+          <div>5 Lixs de 30 mais Exclusivos + 3 Baralhos Infinitos (com um só deixou o adversário rodando) + Cartas Exclusivas + 10.000 de Barreiras Quebradas</div>
+        </div>
+
+        <div class="bonus" style="background:#a020f0;color:#fff;">
+          <strong>🎁 Bônus Exclusivo 2</strong>
+          <div>Acesso antecipado a novas cartas antes de todos</div>
+        </div>
+
+        <div class="instant">⚡ Entrega instantânea via Email e Whatsapp</div>
+        <a class="plan-choose" href="https://www.ggcheckout.com/checkout/v2/720XLkVGnya1iXlutkad">Escolher Plano Rei da Arena</a>
+      </div>
+    </section>
+
   </div>
-
-  <header class="headline">
-    <div class="line">O SEGREDO DA</div>
-    <div class="line big"> @CRAZY STORE QUE</div>
-    <div class="line"><span class="accent">TRANSFORMOU</span> A MIRA DE</div>
-    <div class="line"><span class="accent">+25K DE PLAYERS</span></div>
-    <div class="line accent">EM UMA MÁQUINA DE CAPA</div>
-  </header>
-
-  <div class="cta-wrap">
-    <a class="cta" href="#ofertas" id="mainBuy">EU QUERO O XIT MOBILE</a>
-  </div>
-
-  <div class="divider"></div>
-
-  <p class="lead"><strong>CANSADO</strong> DE APANHAR NAS <span style="color:var(--accent-2)">RANKEDS</span> E QUER DAR UM UPGRADE RÁPIDO?</p>
-
-  <section class="thanks">
-    <div class="thanks-box">
-      <p><strong class="accent-anim">A EQUIPE CRAZY STORE</strong> agradece a todos os clientes — cada feedback nos ajuda a melhorar e trazer atualizações mais rápidas.</p>
-    </div>
-
-    <div class="review-card">
-      <div class="stars">⭐ ⭐ ⭐ ⭐ ⭐</div>
-      <p>🎮 <strong>+25.000 players</strong> satisfeitos com o produto</p>
-      <p>⏳ <strong>+4 anos</strong> de mercado</p>
-      <p>🔒 <strong>7 dias de garantia</strong> – política de reembolso disponível via suporte</p>
-      <p>❓ <strong>Suporte VIP 24h</strong> — tudo disponível na área de membros.</p>
-    </div>
-  </section>
-
-  <section class="motivation">
-    <h2>NÃO ADIANTA <span class="accent-anim">TREINAR DURANTE HORAS...</span><br>QUEM USA O <span class="accent-anim">XIT MOBILE</span> SEMPRE SAI NA <span class="accent-anim">FRENTE.</span></h2>
-    <div class="arrow-down">⮟</div>
-    <h3>ELEVE <span class="accent-anim">O NÍVEL DO SEU JOGO</span> COM O <span class="accent-anim">XIT MOBILE</span> DA <span class="accent-anim">CRAZY STORE</span></h3>
-  </section>
-
-  <div class="offers-title">🔥 CONHEÇA NOSSAS OFERTAS 🔥</div>
-
-  <section class="plans" id="ofertas">
-    <article class="plan-card">
-      <img src="https://i.ibb.co/qLrCHrBJ/IMG-20251108-072242.jpg" alt="Miniatura Semanal" class="plan-thumb">
-      <div class="plan-name">💥 Testa e Surpreende-se!</div>
-      <div class="plan-feats">
-        Acesso temporário de 1 dias<br>
-        Configurações básicas + suporte<br>
-        Funciona em <strong>iOS e Android</strong><br>
-        <strong style="color:var(--accent-2)">+25K players já usam</strong>
-      </div>
-      <div class="plan-price">R$ 6,99</div>
-      <a id="buy-weekly" class="plan-cta" href="https://www.ggcheckout.com/checkout/v2/wycSa8eVbEUQ8tbVj5HP" target="_blank">ADQUIRIR MEU ACESSO</a>
-    </article>
-
-    <article class="plan-card">
-      <div class="badge">🔥 Mais Popular</div>
-      <img src="https://i.ibb.co/qLrCHrBJ/IMG-20251108-072242.jpg" alt="Miniatura Mensal" class="plan-thumb">
-      <div class="plan-name">⚡ Domine as Rankeds!</div>
-      <div class="plan-feats">
-        Acesso de 30 dias<br>
-        Configurações avançadas + suporte VIP<br>
-        Funciona em <strong>iOS e Android</strong><br>
-        <strong style="color:var(--accent-2)">+25K players já usam</strong>
-      </div>
-      <div class="plan-price">R$ 11,99</div>
-      <a id="buy-monthly" class="plan-cta" href="https://www.ggcheckout.com/checkout/v2/zws3IbFoYre9UtufklY0" target="_blank">ADQUIRIR MEU ACESSO</a>
-    </article>
-
-    <article class="plan-card">
-      <img src="https://i.ibb.co/qLrCHrBJ/IMG-20251108-072242.jpg" alt="Miniatura Vitalício" class="plan-thumb">
-      <div class="plan-name">🔥 Mira Perfeita Pra Sempre!</div>
-      <div class="plan-feats">
-        Acesso vitalício<br>
-        Atualizações + suporte VIP 24h<br>
-        Funciona em <strong>iOS e Android</strong><br>
-        <strong style="color:var(--accent-2)">+25K players já usam</strong>
-      </div>
-      <div class="plan-price">R$ 19,99</div>
-      <a id="buy-perm" class="plan-cta" href="https://www.ggcheckout.com/checkout/v2/ifK1oTBQzZ0i1byHRYG4" target="_blank">ADQUIRIR MEU ACESSO</a>
-    </article>
-  </section>
-
-  <!-- Depoimentos de clientes -->
-  <section class="feedbacks" style="margin-top:30px;">
-    <div class="offers-title">🗣️ O QUE NOSSOS CLIENTES DIZEM</div>
-    <div class="review-card">
-      <div class="stars">⭐ ⭐ ⭐ ⭐ ⭐</div>
-      <p>“Comprei o plano mensal e já percebi uma grande melhora na minha mira! Recomendo demais para quem quer evoluir rápido.” <strong>- Lucas S.</strong></p>
-    </div>
-    <div class="review-card">
-      <div class="stars">⭐ ⭐ ⭐ ⭐ ⭐</div>
-      <p>“O suporte é incrível, sempre me ajudaram quando precisei. O XIT MOBILE realmente faz diferença nas partidas.” <strong>- Mariana R.</strong></p>
-    </div>
-    <div class="review-card">
-      <div class="stars">⭐ ⭐ ⭐ ⭐ ⭐</div>
-      <p>“Com o plano vitalício, minhas partidas subiram de nível! Vale cada centavo e ainda recebo atualizações constantes.” <strong>- Rafael T.</strong></p>
-    </div>
-  </section>
-
-  <p class="cta-footer accent-anim">Não perca tempo! Garanta já o seu XIT MOBILE!</p>
-
-  <footer>
-    <a href="https://wa.me/5598984302566" style="color:var(--accent); font-weight:700;">🛠️ Suporte via WhatsApp</a>
-  </footer>
-</main>
-
-<!-- POP-UPS DE COMPRAS -->
-<div id="floating-notifications"></div>
-
-<script>
-  // Função botão rolar para ofertas
-  document.getElementById('mainBuy').addEventListener('click', function(e) {
-    e.preventDefault();
-    document.querySelector('#ofertas').scrollIntoView({ behavior: 'smooth' });
-  });
-
-  // Pop-ups de compras simuladas
-  const messages = [
-    {name:"Lucas S.", plan:"Plano Semanal"},
-    {name:"Mariana R.", plan:"Plano Mensal"},
-    {name:"Rafael T.", plan:"Plano Vitalício"},
-    {name:"Ana C.", plan:"Plano Mensal"},
-    {name:"Pedro M.", plan:"Plano Semanal"},
-    {name:"Juliana F.", plan:"Plano Vitalício"}
-  ];
-
-  const container = document.getElementById('floating-notifications');
-
-  function showNotification() {
-    const msg = messages[Math.floor(Math.random()*messages.length)];
-
-    const notif = document.createElement('div');
-    notif.className = 'purchase-popup';
-    notif.innerHTML = `<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQinnUal9KewD15ltqzleXA5cfzf3geZRIqvhWgbv7nj6gozhqWclLiH0cC&s=10" alt="Avatar"><span><strong>${msg.name}</strong> acabou de adquirir o <strong>${msg.plan}</strong></span>`;
-
-    container.appendChild(notif);
-
-    requestAnimationFrame(() => notif.classList.add('show'));
-
-    setTimeout(() => {
-      notif.classList.remove('show');
-      setTimeout(() => container.removeChild(notif), 600);
-    }, 5000);
+<!-- 🔥 Melhoria: Animações + Rolagem Suave + Responsividade -->
+<style>
+  /* Rolagem suave entre seções */
+  html {
+    scroll-behavior: smooth;
   }
 
-  setInterval(() => showNotification(), Math.floor(Math.random()*4000)+6000);
-</script>
+  /* Animações suaves */
+  .animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+  }
+  .animate.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
+  /* Pequenas melhorias de responsividade */
+  @media (max-width: 768px) {
+    h1.site-title {
+      font-size: 26px !important;
+    }
+    p.lead {
+      font-size: 14px !important;
+    }
+    .video-wrap iframe {
+      height: 220px !important;
+    }
+    .benefit, .card, .plan-card {
+      width: 100% !important;
+      margin: 0 auto 14px auto !important;
+    }
+  }
+
+  /* Efeitos nos botões */
+  .cta-main, .plan-choose, .offer-btn {
+    transition: all 0.3s ease;
+  }
+  .cta-main:hover, .plan-choose:hover, .offer-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 204, 0, 0.6);
+  }
+</style>
+
+<script>
+  // Mostrar elementos com animação ao rolar
+  const animatedItems = document.querySelectorAll('.animate');
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target); // só anima uma vez
+      }
+    });
+  }, { threshold: 0.2 });
+
+  animatedItems.forEach(item => {
+    observer.observe(item);
+  });
+</script>
+<!-- 🔥 Fim das melhorias -->
+<script>
+customElements.define("lite-video-player",class extends HTMLElement{
+  connectedCallback(){
+    const e=this.attachShadow({mode:"open"}),t=this.getAttribute.bind(this),
+    a=t("video-id")||"",r=t("base-url")||"",i=t("aspect-ratio")||"16:9",s=t("params")||"";
+    let o="16/9";
+    if(i==="square")o="1/1";
+    else if(i.includes(":"))o=i.replace(":","/");
+    else o=i;
+    e.innerHTML=`<style>:host{display:block;max-width:1280px;margin:auto}.v{position:relative;width:100%;aspect-ratio:${o};overflow:hidden;border-radius:8px;background:#000}iframe{position:absolute;inset:0;width:100%;height:100%;border:0}</style><div class="v"><iframe src="${r}/embed/${a}?${s}" loading="lazy" allowfullscreen></iframe></div>`;
+  }
+});
+</script>
 </body>
-    </html>
+          </html>
